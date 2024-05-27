@@ -100,7 +100,8 @@ const ContactForm = function (props) {
                 background: "none",
                 width: "30vh",
                 margin: "1vw",
-                border: "2px solid white"
+                border: "2px solid white",
+                color:"white",
               }} name="message" id="" rows="4" required></textarea>
               <input type="hidden" name="subject" value="some is submitted your Portfolio form" />
               <div className="h-captcha" data-captcha="true" data-theme="dark"></div>

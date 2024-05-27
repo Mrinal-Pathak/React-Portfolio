@@ -14,8 +14,8 @@ let projectData = [
         title: "React Portfolio",
         description: "I have created a responsive and animated React portfolio site. The site showcases my work and projects through a clean, modern design. It features smooth animations to enhance user experience and is fully responsive, ensuring optimal viewing across all devices. Additionally, the portfolio includes a functional contact form, allowing visitors to easily get in touch with me.",
         image: "portfolio.png",
-        gitUrl: "https://github.com/Mrinal-Pathak",
-        url: "https://github.com/Mrinal-Pathak"
+        gitUrl: "https://github.com/Mrinal-Pathak/React-Portfolio",
+        url: "https://mrinal-pathak.netlify.app/"
     },
     {
         title: "O-X-game(tic-tac-teo)",
