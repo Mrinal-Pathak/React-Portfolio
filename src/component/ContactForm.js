@@ -107,10 +107,28 @@ const ContactForm = function (props) {
               <button type="submit">Submit</button>
             </motion.form>
           </div>
-          <div id="successMsg" style={{
-            display: "none"
-          }}>your form is submitted successfully!</div>
         </div>
+        <motion.div
+          initial={{
+            scale: 0
+          }}
+          whileInView={{
+            scale: 1
+          }}
+          id="successMsg" style={{
+            display: "none",
+            position: "sticky",
+            bottom: "85vh",
+            background: "#bcf7c4",
+            color: "green",
+            borderRadius: "10px",
+            boxShadow: "2px 2px 10px 2px black,1px 1px 0 .1px white inset",
+            padding: "10px",
+            width: "60vw",
+            left: "20vw",
+            textAlign: "center"
+
+          }}>Your form is submitted successfully!</motion.div>
       </div>
     </>
   )
