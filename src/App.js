@@ -36,16 +36,9 @@ function App() {
   const [pageLoaded,setPageLoaded]=useState(false)
 
   useEffect(() => {
-    const handleLoad = () => {
-      setPageLoaded(true); // Set loading state to false when the site has finished loading
-    };
-
-    window.addEventListener('load', handleLoad); // Listen for the window load event
-
-    return () => {
-      window.removeEventListener('load', handleLoad); // Cleanup event listener
-    };
+    setPageLoaded(true); // Set loading state to true when the component mounts
   }, []);
+  
 
   return (
     <>
