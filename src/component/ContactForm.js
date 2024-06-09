@@ -1,13 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { motion } from "framer-motion";
 
 const ContactForm = function (props) {
 
+  const [successMsg,setSuccessMsg]=useState(false)
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
+    
     formData.append("access_key", props.formKey);
 
     const object = Object.fromEntries(formData);
@@ -23,16 +25,19 @@ const ContactForm = function (props) {
     }).then((res) => res.json());
 
     if (res.success) {
-      document.getElementById("contectForm").reset();
-      document.getElementById("successMsg").style.display = "block";
+      document.getElementById("contactForm").reset();
+      setSuccessMsg(true)
       setTimeout(() => {
-        document.getElementById("successMsg").style.display = "none";
+        setSuccessMsg(false)
       }, 3000);
       if (window.hcaptcha) {
         window.hcaptcha.reset();
       }
     }
   };
+
+ 
+
 
   return (
     <>
@@ -82,7 +87,7 @@ const ContactForm = function (props) {
               whileInView={{
 
               }}
-              id="contectForm" onSubmit={onSubmit} style={{
+              id="contactForm" onSubmit={onSubmit} style={{
                 flexDirection: "column",
                 display: "flex",
                 padding: "2vw 5vw",
@@ -103,13 +108,17 @@ const ContactForm = function (props) {
                 border: "2px solid white",
                 color:"white",
               }} name="message" id="" rows="4" required></textarea>
+              <div
+                className="h-captcha"
+                data-captcha="true"
+                data-theme="dark"
+              ></div>
               <input type="hidden" name="subject" value="some is submitted your Portfolio form" />
-              <div className="h-captcha" data-captcha="true" data-theme="dark"></div>
               <button type="submit">Submit</button>
             </motion.form>
           </div>
         </div>
-        <motion.div
+        {successMsg&&(<motion.div
           initial={{
             scale: 0
           }}
@@ -117,7 +126,7 @@ const ContactForm = function (props) {
             scale: 1
           }}
           id="successMsg" style={{
-            display: "none",
+            display: "block",
             position: "sticky",
             bottom: "85vh",
             background: "#bcf7c4",
@@ -129,7 +138,7 @@ const ContactForm = function (props) {
             left: "20vw",
             textAlign: "center"
 
-          }}>Your form is submitted successfully!</motion.div>
+          }}>Your form is submitted successfully!</motion.div>)}
       </div>
     </>
   )
