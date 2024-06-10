@@ -8,7 +8,7 @@ const ContactForm = function (props) {
 
   const [successMsg, setSuccessMsg] = useState(false)
 
-  
+
   const { register, handleSubmit, setValue } = useForm();
 
   const onHCaptchaChange = (token) => {
@@ -39,7 +39,7 @@ const ContactForm = function (props) {
       setSuccessMsg(true)
       setTimeout(() => {
         setSuccessMsg(false)
-      }, 3000);
+      }, 5000);
       if (window.hcaptcha) {
         window.hcaptcha.reset();
       }
@@ -49,7 +49,7 @@ const ContactForm = function (props) {
 
 
 
- 
+
 
 
   return (
@@ -126,7 +126,7 @@ const ContactForm = function (props) {
                 sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
                 reCaptchaCompat={false}
                 onVerify={onHCaptchaChange}
-              />              
+              />
               <input type="hidden" name="subject" value="some is submitted your Portfolio form" />
               <button type="submit">Submit</button>
             </motion.form>
