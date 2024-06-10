@@ -9,8 +9,9 @@ const ContactForm = function (props) {
   const [successMsg, setSuccessMsg] = useState(false)
 
 
-  const { register, handleSubmit, setValue } = useForm();
+  const { setValue } = useForm();
 
+  
   const onHCaptchaChange = (token) => {
     setValue("h-captcha-response", token);
   };
