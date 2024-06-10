@@ -1,15 +1,25 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+
+import { useForm } from "react-hook-form";
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const ContactForm = function (props) {
 
-  const [successMsg,setSuccessMsg]=useState(false)
+  const [successMsg, setSuccessMsg] = useState(false)
+
+  
+  const { register, handleSubmit, setValue } = useForm();
+
+  const onHCaptchaChange = (token) => {
+    setValue("h-captcha-response", token);
+  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    
+
     formData.append("access_key", props.formKey);
 
     const object = Object.fromEntries(formData);
@@ -35,6 +45,9 @@ const ContactForm = function (props) {
       }
     }
   };
+
+
+
 
  
 
@@ -106,19 +119,20 @@ const ContactForm = function (props) {
                 width: "30vh",
                 margin: "1vw",
                 border: "2px solid white",
-                color:"white",
+                color: "white",
               }} name="message" id="" rows="4" required></textarea>
-              <div
-                className="h-captcha"
-                data-captcha="true"
-                data-theme="dark"
-              ></div>
+
+              <HCaptcha
+                sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                reCaptchaCompat={false}
+                onVerify={onHCaptchaChange}
+              />              
               <input type="hidden" name="subject" value="some is submitted your Portfolio form" />
               <button type="submit">Submit</button>
             </motion.form>
           </div>
         </div>
-        {successMsg&&(<motion.div
+        {successMsg && (<motion.div
           initial={{
             scale: 0
           }}
