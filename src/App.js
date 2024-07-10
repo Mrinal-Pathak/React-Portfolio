@@ -6,8 +6,8 @@ import SKills from './component/Skills';
 import Project from './component/Project';
 import ContactForm from './component/ContactForm';
 import Footer from './component/Footer'
-import { useState,useEffect } from 'react';
-import { motion } from "framer-motion"
+// import { useState,useEffect } from 'react';
+// import { motion } from "framer-motion"
 
 
 let skillData=[
@@ -33,16 +33,11 @@ let skillData=[
 
 function App() {
   const formKey=process.env.REACT_APP_FORM_KEY;
-  const [pageLoaded,setPageLoaded]=useState(false)
-
-  useEffect(() => {
-    setPageLoaded(true); // Set loading state to true when the component mounts
-  }, []);
-  
+ 
 
   return (
     <>
-    {pageLoaded?(<>
+    {/* {pageLoaded?(<> */}
     <PhotoSelection/>
       <Navbar />
       <Description />
@@ -51,7 +46,8 @@ function App() {
       <Project/>
       <ContactForm formKey={formKey}/>
       <Footer/>
-    </>):(<div style={{
+    {/* </>
+    ):(<div style={{
       width:"100vw",
       height:"100vh",
       display:"flex",
@@ -89,7 +85,7 @@ function App() {
         bounce:.8
         // stiffness: 10,
       }}
-      >Loading.....</motion.p></div>)}
+      >Loading.....</motion.p></div>)} */}
     </>
   );
 }
