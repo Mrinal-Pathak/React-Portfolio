@@ -11,6 +11,13 @@ const images = importAllImages(require.context('../images', false, /\.(png|jpe?g
 
 let projectData = [
     {
+        title: "Chat App",
+        description: "This chat application allows users to connect and chat instantly without the need for login credentials. Built using React on the frontend and WebSocket technology for real-time communication, the app facilitates seamless conversations between users who simply provide their name to start chatting. The focus is on creating a smooth and engaging user experience by enabling instant, anonymous chat connections across the platform.",
+        image: "chat-app.jpg",
+        gitUrl: "",
+        url: "https://flash-chat-app.netlify.app/"
+    },
+    {
         title: "E-Commerce",
         description: "I created an e-commerce website using React and Express.js that features user authentication with login and signup, a shopping cart, and product history. The frontend, hosted on Netlify, allows users to browse products, manage their cart, and view order history, while the backend, running on my laptop and using an ngrok tunnel, handles server-side operations and API routes. This setup ensures a seamless and secure shopping experience.",
         image: "e-commerce.jpg",
